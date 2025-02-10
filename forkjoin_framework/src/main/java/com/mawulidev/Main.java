@@ -34,5 +34,12 @@ public class Main {
         System.out.println(Arrays.deepToString(C)); // Should print [[19, 22], [43, 50]]
 
 
+        //Exercise 4
+        int[][] exA = {{1, 2}, {3, 4}};
+        int[][] exB = {{5, 6}, {7, 8}};
+        int[][] results = new int[exA.length][exB.length];
+        multiply(exA, exB, results);
+        System.out.println("Result of parallel block multiplication:");
+        System.out.println(Arrays.deepToString(C)); // Output: [[19, 22], [43, 50]]
     }
 }

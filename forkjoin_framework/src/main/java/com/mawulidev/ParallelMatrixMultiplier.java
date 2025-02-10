@@ -30,3 +30,16 @@ public class ParallelMatrixMultiplier {
         return transposed;
     }
 }
+
+/*
+* Explanation
+Matrix Transposition: The transpose method converts matrix B into Bt, where rows and columns are swapped.
+* This allows for more efficient memory access patterns during multiplication.
+
+Recursive Task Splitting: The MultiplyTask class extends RecursiveAction and splits the rows of matrix A into smaller chunks.
+* If the chunk size exceeds the threshold, it splits the task into two subtasks and processes them in parallel using invokeAll.
+
+Sequential Computation: When the chunk size is within the threshold, the computeSequentially method multiplies the rows of A with the corresponding rows of Bt (columns of B) to compute the result matrix C.
+
+Fork/Join Framework: The main multiply method initializes the ForkJoinPool and starts the top-level task, which recursively splits the work until the threshold is reached, ensuring efficient parallel execution.
+* */
