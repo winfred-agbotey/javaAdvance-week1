@@ -1,6 +1,11 @@
 package com.mawulidev;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ForkJoinPool;
+
+import static com.mawulidev.ParallelMatrixMultiplier.multiply;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,10 +19,20 @@ public class Main {
 //        }
 
         //Exercise 2
-        int[] array = {10,10,10,10};
-        SumTask sumTask = new SumTask(array, 0, array.length);
-        try(ForkJoinPool forkJoinPool = ForkJoinPool.commonPool()) {
-            System.out.println(forkJoinPool.invoke(sumTask));
-        }
+//        int[] array = {10,10,10,10};
+//        SumTask sumTask = new SumTask(array, 0, array.length);
+//        try(ForkJoinPool forkJoinPool = ForkJoinPool.commonPool()) {
+//            System.out.println(forkJoinPool.invoke(sumTask));
+//        }
+
+        //Exercise 3
+        int[][] A = {{1, 2}, {3, 4}};
+        int[][] B = {{5, 6}, {7, 8}};
+        int[][] C = new int[A.length][B.length];
+        multiply(A, B, C);
+        System.out.println("Result of parallel multiplication:");
+        System.out.println(Arrays.deepToString(C)); // Should print [[19, 22], [43, 50]]
+
+
     }
 }
