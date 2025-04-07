@@ -10,13 +10,16 @@ import static com.mawulidev.ParallelMatrixMultiplier.multiply;
 public class Main {
     public static void main(String[] args) {
 
-        //Exercise 1
+//        Exercise 1
 //        System.out.println("Hello, World!");
-//
-//        Fibonacci fibonacci = new Fibonacci(40);
-//        try (ForkJoinPool forkJoinPool = ForkJoinPool.commonPool()) {
-//            System.out.println(forkJoinPool.invoke(fibonacci));
-//        }
+
+        Fibonacci fibonacci = new Fibonacci(10);
+        try (ForkJoinPool forkJoinPool = ForkJoinPool.commonPool()) {
+            System.out.println("Start time : " + System.currentTimeMillis());
+
+            System.out.println(forkJoinPool.invoke(fibonacci));
+            System.out.println(System.currentTimeMillis());
+        }
 
         //Exercise 2
 //        int[] array = {10,10,10,10};
@@ -25,21 +28,21 @@ public class Main {
 //            System.out.println(forkJoinPool.invoke(sumTask));
 //        }
 
-        //Exercise 3
-        int[][] A = {{1, 2}, {3, 4}};
-        int[][] B = {{5, 6}, {7, 8}};
-        int[][] C = new int[A.length][B.length];
-        multiply(A, B, C);
-        System.out.println("Result of parallel multiplication:");
-        System.out.println(Arrays.deepToString(C)); // Should print [[19, 22], [43, 50]]
-
-
-        //Exercise 4
-        int[][] exA = {{1, 2}, {3, 4}};
-        int[][] exB = {{5, 6}, {7, 8}};
-        int[][] results = new int[exA.length][exB.length];
-        multiply(exA, exB, results);
-        System.out.println("Result of parallel block multiplication:");
-        System.out.println(Arrays.deepToString(C)); // Output: [[19, 22], [43, 50]]
+//        //Exercise 3
+//        int[][] A = {{1, 2}, {3, 4}};
+//        int[][] B = {{5, 6}, {7, 8}};
+//        int[][] C = new int[A.length][B.length];
+//        multiply(A, B, C);
+//        System.out.println("Result of parallel multiplication:");
+//        System.out.println(Arrays.deepToString(C)); // Should print [[19, 22], [43, 50]]
+//
+//
+//        //Exercise 4
+//        int[][] exA = {{1, 2}, {3, 4}};
+//        int[][] exB = {{5, 6}, {7, 8}};
+//        int[][] results = new int[exA.length][exB.length];
+//        multiply(exA, exB, results);
+//        System.out.println("Result of parallel block multiplication:");
+//        System.out.println(Arrays.deepToString(C)); // Output: [[19, 22], [43, 50]]
     }
 }
